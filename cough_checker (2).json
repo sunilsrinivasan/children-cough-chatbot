@@ -1,0 +1,66 @@
+{
+  "start_step": "intro",
+  "steps": {
+    "intro": {
+      "message": "Hello! Let’s quickly check your child's cough.",
+      "options": [
+        {
+          "label": "Start",
+          "next": "q_age"
+        }
+      ]
+    },
+    "q_age": {
+      "message": "What is the child's age group?",
+      "options": [
+        {
+          "label": "Under 6 months",
+          "next": "urgent"
+        },
+        {
+          "label": "6–12 months",
+          "next": "q_fast"
+        },
+        {
+          "label": "Over 1 year",
+          "next": "q_fast"
+        }
+      ]
+    },
+    "q_fast": {
+      "message": "Is there fast or difficult breathing?",
+      "options": [
+        {
+          "label": "Yes",
+          "next": "urgent"
+        },
+        {
+          "label": "No",
+          "next": "q_dehyd"
+        }
+      ]
+    },
+    "q_dehyd": {
+      "message": "Signs of dehydration—dry tongue, reduced urine?",
+      "options": [
+        {
+          "label": "Yes",
+          "next": "consult_doctor"
+        },
+        {
+          "label": "No",
+          "next": "homecare"
+        }
+      ]
+    },
+    "urgent": {
+      "message": "⚠️ This could be urgent. Please seek medical care immediately."
+    },
+    "consult_doctor": {
+      "message": "Please consult your pediatrician soon for assessment."
+    },
+    "homecare": {
+      "message": "Home care: fluids, steam inhalation, rest. If symptoms worsen or persist >3 days, consult your doctor."
+    }
+  }
+}
