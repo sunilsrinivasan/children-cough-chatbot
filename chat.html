@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Children Cough Chatbot</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body { font-family: Arial, sans-serif; margin:0; padding:20px; background:#0f172a; color:#e2e8f0;}
+    h1 { text-align:center; }
+    #chatbox { 
+      margin: 20px auto; 
+      max-width: 600px; 
+      background:#1e293b; 
+      padding:20px; 
+      border-radius:12px; 
+      box-shadow:0 6px 14px rgba(0,0,0,.4);
+    }
+    #chatbox p { margin-bottom: 16px; }
+    #chatbox button {
+      display:block;
+      margin:8px 0;
+      padding:10px 14px;
+      border:none;
+      border-radius:8px;
+      background:#38bdf8;
+      color:#0f172a;
+      font-weight:600;
+      cursor:pointer;
+    }
+    #chatbox button:hover { background:#06b6d4; }
+    a.back { display:inline-block; margin-top:20px; color:#38bdf8; text-decoration:none;}
+  </style>
+</head>
+<body>
+  <h1>Children Cough Chatbot</h1>
+  <div id="chatbox"></div>
+  <a class="back" href="index.html">← Back to Landing</a>
+
+  <script src="chatbot.js"></script>
+  <script>
+    // Initialize chatbot on page load
+    window.onload = loadChatbot;
+  </script>
+</body>
+</html>
