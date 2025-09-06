@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Children Cough Chatbot</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body { font-family: system-ui, Arial, sans-serif; margin: 0; background:#0f172a; color:#e2e8f0;}
+    .wrap { max-width: 900px; margin: 0 auto; padding: 20px; }
+    .top { display:flex; justify-content:space-between; align-items:center; gap:12px; }
+    a.btn { display:inline-block; padding:10px 14px; border-radius:10px; border:1px solid rgba(148,163,184,.3); text-decoration:none; color:#0b1227; background:linear-gradient(135deg,#38bdf8,#06b6d4); font-weight:600;}
+    .card { background: rgba(2,8,23,.45); border:1px solid rgba(148,163,184,.22); border-radius:16px; padding:16px; margin-top:16px;}
+    #messages { height: 60vh; overflow:auto; padding:12px; background:rgba(2,8,23,.35); border-radius:12px; border:1px solid rgba(148,163,184,.18);}
+    form { display:flex; gap:8px; margin-top:12px; }
+    input[type=text]{ flex:1; padding:12px; border-radius:12px; border:1px solid rgba(148,163,184,.35); background:#0b1227; color:#e2e8f0;}
+    button{ padding:12px 16px; border-radius:12px; border:1px solid rgba(148,163,184,.35); background:#1f2937; color:#e2e8f0; font-weight:600; cursor:pointer;}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="top">
+      <h1 style="margin:0">Children Cough Chatbot</h1>
+      <a class="btn" href="./index.html">← Back to Landing</a>
+    </div>
+
+    <div class="card">
+      <div id="messages" aria-live="polite"></div>
+      <form id="chat-form">
+        <input id="user-input" type="text" placeholder="Type your answer…" autocomplete="off" />
+        <button id="send-btn" type="submit">Send</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Your existing logic -->
+  <script src="chatbot.js"></script>
+
+  <!-- Optional: try to initialize if your JS exposes an init function -->
+  <script>
+    // If your chatbot.js provides an initializer, call it:
+    if (typeof window.initChatbot === "function") {
+      window.initChatbot({
+        specPath: "cough_checker.json",
+        messagesId: "messages",
+        inputId: "user-input",
+        sendBtnId: "send-btn",
+        formId: "chat-form"
+      });
+    }
+  </script>
+</body>
+</html>
