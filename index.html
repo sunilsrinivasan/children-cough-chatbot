@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Children Cough Checker | Pediatrician-Designed Symptom Triage</title>
+  <meta name="description" content="A quick, parent-friendly chatbot to check when a child's cough needs a doctor's visit and when home care is appropriate. Designed by a pediatrician.">
+  <meta name="robots" content="index,follow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0f172a;          /* slate-900 */
+      --panel:#0b1227;       /* deeper bluish */
+      --muted:#94a3b8;       /* slate-400 */
+      --text:#e2e8f0;        /* slate-200 */
+      --brand:#38bdf8;       /* sky-400 */
+      --accent:#22c55e;      /* green-500 */
+      --warning:#f59e0b;     /* amber-500 */
+      --ring: rgba(56,189,248,.45);
+      --shadow: 0 10px 30px rgba(2,8,23,.5);
+      --radius: 18px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif; color:var(--text); background:radial-gradient(1200px 800px at 10% -10%, #0b1227 0%, #0f172a 40%, #0b1227 100%);
+      line-height:1.6;
+    }
+    a{color:inherit; text-decoration:none}
+    .container{max-width:1100px; margin:0 auto; padding:24px}
+    /* Header */
+    header{position:sticky; top:0; z-index:30; backdrop-filter:saturate(140%) blur(10px); background:linear-gradient(180deg, rgba(15,23,42,.85), rgba(15,23,42,.6)); border-bottom:1px solid rgba(148,163,184,.15)}
+    .nav{display:flex; align-items:center; justify-content:space-between}
+    .brand{display:flex; gap:10px; align-items:center}
+    .logo{width:36px; height:36px; border-radius:12px; background:linear-gradient(135deg,var(--brand),#7dd3fc); box-shadow:0 6px 14px var(--ring); position:relative}
+    .logo::after{content:""; position:absolute; inset:8px; border:2px solid rgba(255,255,255,.7); border-radius:8px}
+    .brand h1{margin:0; font-size:18px; letter-spacing:.4px}
+    .cta{display:flex; gap:10px}
+    .btn{display:inline-flex; align-items:center; justify-content:center; gap:10px; padding:12px 18px; border-radius:14px; font-weight:600; border:1px solid rgba(148,163,184,.25); background:linear-gradient(180deg, rgba(30,41,59,.8), rgba(2,8,23,.7)); box-shadow:var(--shadow); transition:transform .15s ease, box-shadow .15s ease, background .2s}
+    .btn:hover{transform:translateY(-1px); box-shadow:0 12px 24px rgba(2,8,23,.55)}
+    .btn.primary{background:linear-gradient(135deg, var(--brand), #06b6d4); color:#0b1227; border-color:transparent}
+    .btn.ghost{background:transparent}
+
+    /* Hero */
+    .hero{display:grid; grid-template-columns:1.1fr .9fr; gap:36px; align-items:center; padding:70px 0}
+    @media (max-width: 900px){ .hero{grid-template-columns:1fr; padding:38px 0} }
+    .kicker{display:inline-block; padding:6px 12px; border-radius:999px; background:rgba(56,189,248,.12); color:#7dd3fc; border:1px solid rgba(56,189,248,.3); font-weight:600; letter-spacing:.3px}
+    .hero h2{margin:14px 0 10px; font-size:44px; line-height:1.15}
+    .hero p{color:var(--muted); font-size:18px}
+    .hero .actions{margin-top:18px; display:flex; gap:12px; flex-wrap:wrap}
+
+    /* Panel card */
+    .card{background:linear-gradient(180deg, rgba(2,8,23,.6), rgba(2,8,23,.35)); border:1px solid rgba(148,163,184,.18); border-radius:var(--radius); box-shadow:var(--shadow); padding:22px}
+
+    /* Inline SVG illustration wrapper */
+    .artwrap{position:relative; aspect-ratio:1/1; width:100%; max-width:520px; margin:0 auto}
+    .caption{margin-top:10px; text-align:center; color:var(--muted); font-size:14px}
+
+    /* Features */
+    .features{display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin:30px 0}
+    @media (max-width: 980px){ .features{grid-template-columns:1fr 1fr} }
+    @media (max-width: 640px){ .features{grid-template-columns:1fr} }
+    .feature{padding:18px; border-radius:16px; border:1px solid rgba(148,163,184,.18); background:linear-gradient(180deg, rgba(2,8,23,.55), rgba(2,8,23,.25))}
+    .feature h3{margin:6px 0 8px; font-size:18px}
+    .feature p{margin:0; color:var(--muted)}
+
+    /* How */
+    .how{display:grid; grid-template-columns:1fr 1fr; gap:20px}
+    @media (max-width: 900px){ .how{grid-template-columns:1fr} }
+    ol.timeline{margin:0; padding-left:18px; color:var(--muted)}
+    ol.timeline li{margin:10px 0; padding-left:6px}
+
+    /* Notice */
+    .notice{margin:32px 0; padding:16px 18px; border-radius:14px; border:1px dashed rgba(245,158,11,.35); background:linear-gradient(180deg, rgba(245,158,11,.08), rgba(245,158,11,.04)); color:#fde68a}
+
+    /* Footer */
+    footer{margin-top:40px; padding:28px 0; border-top:1px solid rgba(148,163,184,.15); color:var(--muted); font-size:14px}
+    .footcol{display:flex; gap:16px; flex-wrap:wrap; align-items:center; justify-content:space-between}
+    .links a{opacity:.9}
+
+    /* Accessibility */
+    .sr-only{position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); border:0}
+  </style>
+  <!-- Structured data (SoftwareApplication + MedicalWebPage) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"MedicalWebPage",
+    "name":"Children Cough Checker",
+    "about": {"@type":"SoftwareApplication","name":"Children Cough Chatbot","applicationCategory":"HealthApplication"},
+    "audience":{"@type":"PeopleAudience","suggestedAge":"0-12"},
+    "medicalSpecialty":"Pediatrics",
+    "creator":{"@type":"Person","name":"Pediatrician Creator"},
+    "isFamilyFriendly": true,
+    "publisher":{"@type":"Organization","name":"Children Cough Checker"}
+  }
+  </script>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand" aria-label="Site brand">
+        <div class="logo" aria-hidden="true"></div>
+        <h1>Children Cough Checker</h1>
+      </div>
+      <nav class="cta" aria-label="primary">
+        <a class="btn ghost" href="#about">About</a>
+        <a class="btn ghost" href="#how">How it works</a>
+        <a class="btn primary" href="./chat.html">Start the Chatbot</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Hero -->
+    <section class="hero" id="home">
+      <div>
+        <span class="kicker">Pediatrician-designed • Parent-friendly</span>
+        <h2>Worried about your child's cough?<br> Get guidance in minutes.</h2>
+        <p>
+          This quick triage chatbot helps parents decide when to use home care and when to seek medical attention. Built and validated with pediatric colleagues and feedback from real parents.
+        </p>
+        <div class="actions">
+          <a class="btn primary" href="./chat.html" aria-label="Open the Children Cough Chatbot">Try the Cough Checker</a>
+          <a class="btn" href="#about" aria-label="Learn more about the tool">Learn more</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="artwrap" aria-hidden="true">
+          <!-- Inline SVG: Minimal line drawing of a child with a scarf, gentle cough plume -->
+          <svg viewBox="0 0 600 600" width="100%" height="100%" role="img" aria-labelledby="artTitle artDesc">
+            <title id="artTitle">Line drawing of a child coughing with a scarf</title>
+            <desc id="artDesc">Simple monochrome stroke illustration: child in profile wearing a scarf, gentle breath plume, calm style.</desc>
+            <defs>
+              <linearGradient id="glow" x1="0" x2="1">
+                <stop offset="0%" stop-color="#38bdf8" stop-opacity=".8"/>
+                <stop offset="100%" stop-color="#7dd3fc" stop-opacity=".2"/>
+              </linearGradient>
+              <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+                <feGaussianBlur stdDeviation="1.8" result="b"/>
+                <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+              </filter>
+            </defs>
+            <rect x="0" y="0" width="600" height="600" fill="none"/>
+            <!-- Face profile -->
+            <path d="M190,250 C210,210 260,190 300,200 C320,205 340,220 350,240 C360,260 360,290 352,310 C345,328 330,340 310,345" fill="none" stroke="#e2e8f0" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+            <!-- Eye -->
+            <path d="M305 250 q10 8 0 16" fill="none" stroke="#e2e8f0" stroke-width="4" stroke-linecap="round"/>
+            <!-- Hair -->
+            <path d="M220,230 C240,190 290,170 330,190 C350,200 360,215 370,235" fill="none" stroke="#e2e8f0" stroke-width="5" stroke-linecap="round"/>
+            <!-- Scarf -->
+            <path d="M230,330 C260,320 310,320 340,335 C360,345 380,360 395,380" fill="none" stroke="#7dd3fc" stroke-width="5" stroke-linecap="round"/>
+            <path d="M270,360 q40 20 10 60" fill="none" stroke="#7dd3fc" stroke-width="5" stroke-linecap="round"/>
+            <!-- Torso -->
+            <path d="M215,380 C230,430 240,470 260,510" fill="none" stroke="#e2e8f0" stroke-width="4" stroke-linecap="round"/>
+            <!-- Gentle cough plume -->
+            <path d="M370,285 q35 -10 60 8 q-25 18 -58 10 q28 12 48 30 q-30 4 -55 -8" fill="none" stroke="url(#glow)" stroke-width="5" stroke-linecap="round" filter="url(#soft)"/>
+            <!-- Subtle baseline -->
+            <path d="M120,540 C250,540 350,520 490,540" fill="none" stroke="#334155" stroke-width="3" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <p class="caption">Minimal line art for a calm, non-alarming experience</p>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section id="about">
+      <div class="features">
+        <div class="feature">
+          <h3>Clinically informed</h3>
+          <p>Crafted by a pediatrician and reviewed with colleagues. Prompts reflect standard red-flags parents can recognize.</p>
+        </div>
+        <div class="feature">
+          <h3>Fast & clear</h3>
+          <p>Guides you through simple questions and gives clear next-step guidance: home care vs. consult a doctor.</p>
+        </div>
+        <div class="feature">
+          <h3>Private by design</h3>
+          <p>No account required. The tool runs in your browser; no PHI is stored on this page.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- How it works + CTA -->
+    <section id="how" class="how">
+      <div class="card">
+        <h3 style="margin-top:0">How it works</h3>
+        <ol class="timeline">
+          <li>Answer 4–8 quick questions about your child’s cough.</li>
+          <li>See personalized guidance grounded in common pediatric triage principles.</li>
+          <li>Get red-flag alerts when to seek care urgently.</li>
+          <li>Receive practical home-care tips for mild cases.</li>
+        </ol>
+        <div class="actions" style="margin-top:12px">
+          <a class="btn primary" href="./chat.html">Start now</a>
+          <a class="btn" href="#safety">Safety notice</a>
+        </div>
+      </div>
+      <div class="card">
+        <h3 style="margin-top:0">Why parents like it</h3>
+        <p style="color:var(--muted)">Clear language, no fear-mongering, and decisive next steps. Perfect for late-night decisions when clinics are closed.</p>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:10px">
+          <div class="feature"><strong>2–3 mins</strong><br><span style="color:var(--muted)">Typical completion time</span></div>
+          <div class="feature"><strong>Actionable</strong><br><span style="color:var(--muted)">Concrete guidance, not generic tips</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Notice -->
+    <section id="safety" class="notice" role="note" aria-label="Medical safety notice">
+      <strong>Important:</strong> This tool does not replace clinical judgment. If your child is in distress, has difficulty breathing, is very drowsy, or you’re worried, seek medical care immediately or call local emergency services.
+    </section>
+
+    <!-- FAQ -->
+    <section class="card" aria-label="FAQs">
+      <details>
+        <summary><strong>Is my data stored?</strong></summary>
+        <p>On this landing page, no personal health information is stored. If you use the chatbot, please review its repository/app privacy notes for details.</p>
+      </details>
+      <details>
+        <summary><strong>Who created this?</strong></summary>
+        <p>Designed by a pediatrician and refined with feedback from pediatric colleagues and parents.</p>
+      </details>
+      <details>
+        <summary><strong>Can clinics/schools license this?</strong></summary>
+        <p>Yes. White-label and institutional versions are available. See contact below.</p>
+      </details>
+    </section>
+
+    <!-- Contact / Licensing -->
+    <section class="card" style="margin-top:20px">
+      <h3 style="margin-top:0">Licensing & Partnerships</h3>
+      <p style="color:var(--muted)">Interested in a branded version for your hospital, clinic, or school? Get in touch for integration and licensing options.</p>
+      <div class="actions">
+        <a class="btn" href="mailto:contact@example.com?subject=Children%20Cough%20Chatbot%20Licensing">Email for Licensing</a>
+        <a class="btn" href="./chat.html">Use the Chatbot</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container footcol">
+      <div>
+        © <span id="year"></span> Children Cough Checker • For educational triage support only.
+      </div>
+      <div class="links">
+        <a href="#safety">Safety</a> •
+        <a href="#about">About</a> •
+        <a href="#how">How it works</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
