@@ -149,7 +149,7 @@
       ]
     },
     "step12": {
-      "message": "Signs of dehydration? (dry tongue, reduced urine)",
+      "message": "Signs of dehydration-dry tongue, reduced urine?",
       "options": [
         {
           "label": "Yes",
