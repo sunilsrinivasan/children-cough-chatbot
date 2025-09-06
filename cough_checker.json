@@ -131,7 +131,7 @@
         },
         {
           "label": "No",
-          "next": "consult_doctor"
+          "next": "step11"
         }
       ]
     },
