@@ -1,0 +1,603 @@
+{
+  "start_step": "step1",
+  "steps": {
+    "step1": {
+      "message": "Age of your child is less than 3 months old?",
+      "options": [
+        {
+          "label": "Yes",
+          "next": "consult_doctor"
+        },
+        {
+          "label": "No",
+          "next": "step2"
+        }
+      ]
+    },
+    "step2": {
+      "message": "Is your child alert and feeding well?",
+      "options": [
+        {
+          "label": "Yes",
+          "next": "step3"
+        },
+        {
+          "label": "No",
+          "next": "consult_doctor"
+        }
+      ]
+    },
+    "step3": {
+      "message": "What is the age of your child?",
+      "options": [
+        {
+          "label": "3–6 months",
+          "next": "step5"
+        },
+        {
+          "label": "6–12 months",
+          "next": "step15"
+        },
+        {
+          "label": "1–3 years",
+          "next": "step25"
+        },
+        {
+          "label": "3–5 years",
+          "next": "step33"
+        },
+        {
+          "label": "5–10 years",
+          "next": "step39"
+        },
+        {
+          "label": "Above 10 years",
+          "next": "step45"
+        }
+      ]
+    },
+    "step5": {
+      "message": "Does your baby have fast breathing (> 50 times/min)?",
+      "options": [
+        {
+          "label": "Yes",
+          "next": "consult_doctor"
+        },
+        {
+          "label": "No",
+          "next": "step6"
+        }
+      ]
+    },
+    "step6": {
+      "message": "Is any family member suffering from cough or cold?",
+      "options": [
+        {
+          "label": "Yes",
+          "next": "adv_mild_ignore_3_6"
+        },
+        {
+          "label": "No",
+          "next": "step7"
+        }
+      ]
+    },
+    "step7": {
+      "message": "Did you give an oil bath in the past 3 days?",
+      "options": [
+        {
+          "label": "Yes",
+          "next": "adv_mild_ignore_oil_3_6"
+        },
+        {
+          "label": "No",
+          "next": "step8a"
+        }
+      ]
+    },
+    "step8a": {
+      "message": "Did your child choke during the feeds?",
+      "options": [
+        {
+          "label": "Yes",
+          "next": "adv_choke"
+        },
+        {
+          "label": "No",
+          "next": "step9"
+        }
+      ]
+    },
+    "step9": {
+      "message": "Is your child suffering from running nose?",
+      "options": [
+        {
+          "label": "Yes",
+          "next": "adv_mild_ignore_3_6"
+        },
+        {
+          "label": "No",
+          "next": "step10"
+        }
+      ]
+    },
+    "step10": {
+      "message": "Is your child feeding well?",
+      "options": [
+        {
+          "label": "Yes",
+          "next": "adv_mild_ignore_3_6"
+        },
+        {
+          "label": "No",
+          "next": "step12"
+        }
+      ]
+    },
+    "step12": {
+      "message": "Does your child show features of dehydration (dry tongue / reduced urine)?",
+      "options": [
+        {
+          "label": "Yes",
+          "next": "consult_doctor"
+        },
+        {
+          "label": "No",
+          "next": "step13"
+        }
+      ]
+    },
+    "step13": {
+      "message": "Does your child show interest in the surroundings?",
+      "options": [
+        {
+          "label": "Yes",
+          "next": "step14"
+        },
+        {
+          "label": "No",
+          "next": "consult_doctor"
+        }
+      ]
+    },
+    "step14": {
+      "message": "Has your child voided urine in the past 6 hours?",
+      "options": [
+        {
+          "label": "Yes",
+          "next": "adv_mild_ignore_3_6"
+        },
+        {
+          "label": "No",
+          "next": "adv_watch_urine"
+        }
+      ]
+    },
+    "step15": {
+      "message": "Does your baby have fast breathing (> 50 times/min)?",
+      "options": [
+        {
+          "label": "Yes",
+          "next": "consult_doctor"
+        },
+        {
+          "label": "No",
+          "next": "step16"
+        }
+      ]
+    },
+    "step16": {
+      "message": "Is any family member suffering from cough or cold?",
+      "options": [
+        {
+          "label": "Yes",
+          "next": "care_6_12"
+        },
+        {
+          "label": "No",
+          "next": "step17"
+        }
+      ]
+    },
+    "step17": {
+      "message": "Did you give an oil bath in the past 3 days?",
+      "options": [
+        {
+          "label": "Yes",
+          "next": "care_6_12"
+        },
+        {
+          "label": "No",
+          "next": "step18"
+        }
+      ]
+    },
+    "step18": {
+      "message": "Did your child choke during the feeds?",
+      "options": [
+        {
+          "label": "Yes",
+          "next": "adv_choke"
+        },
+        {
+          "label": "No",
+          "next": "step19"
+        }
+      ]
+    },
+    "step19": {
+      "message": "Is your child suffering from running nose?",
+      "options": [
+        {
+          "label": "Yes",
+          "next": "care_6_12"
+        },
+        {
+          "label": "No",
+          "next": "step20"
+        }
+      ]
+    },
+    "step20": {
+      "message": "Is your child feeding well?",
+      "options": [
+        {
+          "label": "Yes",
+          "next": "care_6_12"
+        },
+        {
+          "label": "No",
+          "next": "step21"
+        }
+      ]
+    },
+    "step21": {
+      "message": "Does your child show features of dehydration (dry tongue / reduced urine)?",
+      "options": [
+        {
+          "label": "Yes",
+          "next": "consult_doctor"
+        },
+        {
+          "label": "No",
+          "next": "step22"
+        }
+      ]
+    },
+    "step22": {
+      "message": "Does your child show interest in the surroundings?",
+      "options": [
+        {
+          "label": "Yes",
+          "next": "care_6_12_plus_fluids"
+        },
+        {
+          "label": "No",
+          "next": "consult_doctor"
+        }
+      ]
+    },
+    "step25": {
+      "message": "Does your child have fast breathing (> 40 times/min)?",
+      "options": [
+        {
+          "label": "Yes",
+          "next": "consult_doctor"
+        },
+        {
+          "label": "No",
+          "next": "step26"
+        }
+      ]
+    },
+    "step26": {
+      "message": "Is any family member suffering from cough or cold?",
+      "options": [
+        {
+          "label": "Yes",
+          "next": "care_1_3"
+        },
+        {
+          "label": "No",
+          "next": "step27"
+        }
+      ]
+    },
+    "step27": {
+      "message": "Did you give an oil bath in the past 3 days?",
+      "options": [
+        {
+          "label": "Yes",
+          "next": "care_1_3"
+        },
+        {
+          "label": "No",
+          "next": "step29"
+        }
+      ]
+    },
+    "step29": {
+      "message": "Is your child suffering from running nose?",
+      "options": [
+        {
+          "label": "Yes",
+          "next": "care_1_3"
+        },
+        {
+          "label": "No",
+          "next": "step30"
+        }
+      ]
+    },
+    "step30": {
+      "message": "Is your child feeding well?",
+      "options": [
+        {
+          "label": "Yes",
+          "next": "care_1_3"
+        },
+        {
+          "label": "No",
+          "next": "step31"
+        }
+      ]
+    },
+    "step31": {
+      "message": "Does your child show features of dehydration (dry tongue / reduced urine)?",
+      "options": [
+        {
+          "label": "Yes",
+          "next": "consult_doctor"
+        },
+        {
+          "label": "No",
+          "next": "step32"
+        }
+      ]
+    },
+    "step32": {
+      "message": "Has your child voided urine in the past 6 hours?",
+      "options": [
+        {
+          "label": "Yes",
+          "next": "care_1_3"
+        },
+        {
+          "label": "No",
+          "next": "care_1_3_watch_urine"
+        }
+      ]
+    },
+    "step33": {
+      "message": "Does your child have fast breathing (> 40 times/min)?",
+      "options": [
+        {
+          "label": "Yes",
+          "next": "consult_doctor"
+        },
+        {
+          "label": "No",
+          "next": "step34"
+        }
+      ]
+    },
+    "step34": {
+      "message": "Is any family member suffering from cough or cold?",
+      "options": [
+        {
+          "label": "Yes",
+          "next": "care_3_5"
+        },
+        {
+          "label": "No",
+          "next": "step35"
+        }
+      ]
+    },
+    "step35": {
+      "message": "Did you give an oil bath in the past 3 days?",
+      "options": [
+        {
+          "label": "Yes",
+          "next": "care_3_5"
+        },
+        {
+          "label": "No",
+          "next": "step36"
+        }
+      ]
+    },
+    "step36": {
+      "message": "Is your child suffering from running nose?",
+      "options": [
+        {
+          "label": "Yes",
+          "next": "care_3_5"
+        },
+        {
+          "label": "No",
+          "next": "step37"
+        }
+      ]
+    },
+    "step37": {
+      "message": "Does your child show features of dehydration (dry tongue / reduced urine)?",
+      "options": [
+        {
+          "label": "Yes",
+          "next": "consult_doctor"
+        },
+        {
+          "label": "No",
+          "next": "step38"
+        }
+      ]
+    },
+    "step38": {
+      "message": "Is your child feeding well?",
+      "options": [
+        {
+          "label": "Yes",
+          "next": "care_3_5"
+        },
+        {
+          "label": "No",
+          "next": "consult_doctor"
+        }
+      ]
+    },
+    "step39": {
+      "message": "Does your child have fast breathing (> 30 times/min)?",
+      "options": [
+        {
+          "label": "Yes",
+          "next": "consult_doctor"
+        },
+        {
+          "label": "No",
+          "next": "step40"
+        }
+      ]
+    },
+    "step40": {
+      "message": "Is any family member suffering from cough or cold?",
+      "options": [
+        {
+          "label": "Yes",
+          "next": "care_5_10"
+        },
+        {
+          "label": "No",
+          "next": "step41"
+        }
+      ]
+    },
+    "step41": {
+      "message": "Is your child suffering from running nose?",
+      "options": [
+        {
+          "label": "Yes",
+          "next": "care_5_10"
+        },
+        {
+          "label": "No",
+          "next": "step42"
+        }
+      ]
+    },
+    "step42": {
+      "message": "Is your child eating well?",
+      "options": [
+        {
+          "label": "Yes",
+          "next": "care_5_10"
+        },
+        {
+          "label": "No",
+          "next": "consult_doctor"
+        }
+      ]
+    },
+    "step45": {
+      "message": "Does your child have fast breathing (> 30 times/min)?",
+      "options": [
+        {
+          "label": "Yes",
+          "next": "consult_doctor"
+        },
+        {
+          "label": "No",
+          "next": "step46"
+        }
+      ]
+    },
+    "step46": {
+      "message": "Is any family member suffering from cough or cold?",
+      "options": [
+        {
+          "label": "Yes",
+          "next": "care_10p"
+        },
+        {
+          "label": "No",
+          "next": "step48"
+        }
+      ]
+    },
+    "step48": {
+      "message": "Did you give an oil bath in the past 3 days?",
+      "options": [
+        {
+          "label": "Yes",
+          "next": "care_10p"
+        },
+        {
+          "label": "No",
+          "next": "step49"
+        }
+      ]
+    },
+    "step49": {
+      "message": "Is your child suffering from running nose?",
+      "options": [
+        {
+          "label": "Yes",
+          "next": "care_10p"
+        },
+        {
+          "label": "No",
+          "next": "step50"
+        }
+      ]
+    },
+    "step50": {
+      "message": "Does your child drink fluids well?",
+      "options": [
+        {
+          "label": "Yes",
+          "next": "care_10p"
+        },
+        {
+          "label": "No",
+          "next": "consult_doctor"
+        }
+      ]
+    },
+    "consult_doctor": {
+      "message": "Please consult your doctor."
+    },
+    "adv_choke": {
+      "message": "Position your baby over your shoulder and burp adequately. If breathing or swallowing difficulty occurs, please consult your doctor immediately."
+    },
+    "adv_mild_ignore_3_6": {
+      "message": "You may ignore mild cough that is not disturbing feeds. Consult your doctor if cough persists or is severe."
+    },
+    "adv_mild_ignore_oil_3_6": {
+      "message": "Avoid oil baths. You may ignore mild cough not disturbing feeds. Consult your doctor if cough persists or is severe."
+    },
+    "adv_watch_urine": {
+      "message": "Watch urine output closely; continue breast or formula feeds. Consult your doctor if cough persists or is severe."
+    },
+    "care_6_12": {
+      "message": "Cough Care (6–12 months):\nIf the cough is mild, monitor — no medicines needed.\nIf moderate:\n👉 Alerid (Cetirizine) 2.5 ml at night × 3 days\n👉 Levolin 2.5 ml, two times daily × 3 days\n⏱️ If cough > 3 days or the child looks very tired/weak, consult your doctor.\nGive plenty of liquids. Avoid fruit juices and cool drinks."
+    },
+    "care_6_12_plus_fluids": {
+      "message": "Give soup, kanji, curds, payasam, milk, dal, rasam or plain water (if >6 months). If breast fed, continue frequent breast feeds. Watch urine output closely.\n\nCough Care (6–12 months):\nIf mild, monitor. If moderate:\n👉 Alerid (Cetirizine) 2.5 ml at night × 3 days\n👉 Levolin 2.5 ml, two times daily × 3 days\n⏱️ If cough > 3 days or looks very tired/weak, consult your doctor.\nAvoid fruit juices and cool drinks."
+    },
+    "care_1_3": {
+      "message": "Cough Care (1–3 years):\nIf mild, monitor — no medicines needed.\nIf moderate:\n👉 Alerid (Cetirizine) 5 ml at night × 3 days\n👉 Levolin 2.5 ml, three times daily × 3 days\n⏱️ If cough > 3 days or the child looks very tired/weak, consult your doctor.\nPlenty of liquids; avoid fruit juices and cool drinks."
+    },
+    "care_1_3_watch_urine": {
+      "message": "Give soup, kanji, curds, payasam, milk, dal, rasam or plain water (if >6 months). If breast fed, continue frequent breast feeds. Watch urine output for the next 12 hours.\n\nCough Care (1–3 years):\nIf mild, monitor. If moderate:\n👉 Alerid (Cetirizine) 5 ml at night × 3 days\n👉 Levolin 2.5 ml, three times daily × 3 days\n⏱️ If cough > 3 days or looks very tired/weak, consult your doctor.\nAvoid fruit juices and cool drinks."
+    },
+    "care_3_5": {
+      "message": "Cough Care (3–5 years):\nIf mild, monitor — no medicines needed.\nIf moderate:\n👉 Alerid (Cetirizine) 5 ml at night × 3 days\n👉 Levolin 5 ml, two times daily × 3 days\n⏱️ If cough > 3 days or the child looks very tired/weak, consult your doctor.\nFluids + steam inhalation; avoid fruit juices and cool drinks."
+    },
+    "care_5_10": {
+      "message": "Cough Care (5–10 years):\nIf mild, monitor — no medicines needed.\nIf moderate:\n👉 Alerid (Cetirizine) 7.5 ml at night × 3 days\n👉 Benadryl Cough Formula 5 ml, three times daily × 3 days\n⏱️ If cough > 3 days or the child looks very tired/weak, consult your doctor.\nSteam inhalation 3×/day; plenty of liquids. Avoid fruit juices and cool drinks."
+    },
+    "care_10p": {
+      "message": "Cough Care (≥10 years):\nIf mild, monitor — no medicines needed.\nIf moderate:\n👉 Alerid (Cetirizine) 1 tablet at night × 3 days\n👉 Benadryl Cough Formula 7.5 ml, four times daily × 3 days\n⏱️ If cough > 3 days or the child looks very tired/weak, consult your doctor.\nSteam inhalation 3×/day; plenty of liquids. Avoid fruit juices and cool drinks."
+    }
+  }
+}
