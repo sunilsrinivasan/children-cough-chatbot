@@ -260,13 +260,13 @@
           "next": "cough_care_6_12"
         },
         {
-          "label": "No",
+          "label": "No",a
           "next": "consult_doctor"
         }
       ]
     },
     "step21": {
-      "message": "Signs of dehydration (dry tongue/reduced urine)?",
+      "message": "Signs of dehydration- dry tongue/reduced urine?",
       "options": [
         {
           "label": "Yes",
@@ -357,7 +357,7 @@
       ]
     },
     "step31": {
-      "message": "Signs of dehydration?",
+      "message": "Signs of dehydration- dry tongue/reduced urine?",
       "options": [
         {
           "label": "Yes",
@@ -435,7 +435,7 @@
       ]
     },
     "step37": {
-      "message": "Signs of dehydration?",
+      "message": "Signs of dehydration- dry tongue/reduced urine?",
       "options": [
         {
           "label": "Yes",
